@@ -1,16 +1,28 @@
 import React from "react";
+import { useState } from "react/cjs/react.development";
 
-function PlantCard() {
+function PlantCard({plant, handleDelete}) {
+
+  const [plantStatus, setPlantStatus] = useState(true)
+  const {id, name, image ="https://via.placeholder.com/400", price} = plant
+
+
+  const handleStatus = () => {
+    setPlantStatus(prevState => !prevState)
+  }
+
+
   return (
     <li className="card">
-      <img src={"https://via.placeholder.com/400"} alt={"plant name"} />
-      <h4>{"plant name"}</h4>
-      <p>Price: {"plant price"}</p>
-      {true ? (
-        <button className="primary">In Stock</button>
+      <img src={image} alt={name} />
+      <h4>{name}</h4>
+      <p>Price: {price}</p>
+      {plantStatus ? (
+        <button onClick={handleStatus} className="primary">In Stock</button>
       ) : (
-        <button>Out of Stock</button>
+        <button onClick={handleStatus}>Out of Stock</button>
       )}
+      <button onClick={() => handleDelete(id)} style={{backgroundColor: 'orange'}}>Delete</button>
     </li>
   );
 }
