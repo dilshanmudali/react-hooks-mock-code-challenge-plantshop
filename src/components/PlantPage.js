@@ -35,6 +35,19 @@ const PlantPage = ()  => {
     })
   }
 
+  const handleUpdatePlant = (updatePlant) => {
+    
+    const updateArr = plantsData.map(plantObj => {
+      if(updatePlant.id === plantObj.id){
+        return {...updatePlant}
+      }else{
+        return plantObj
+      }
+    })
+
+    setPlantsData(updateArr)
+  }
+
   const handleDelete = (id) => {
 
     fetch(`${Url_main}/${id}`,{
@@ -50,7 +63,8 @@ const PlantPage = ()  => {
     <main>
       <NewPlantForm handleAddPlant={handleAddPlant} />
       <Search search={search} setSearch={setSearch} setSortBy={setSortBy}/>
-      <PlantList plantsData={plantsData} search={search} handleAddPlant={handleAddPlant} handleDelete={handleDelete}  sort={sort}/>
+      <PlantList
+      handleUpdatePlant={handleUpdatePlant} plantsData={plantsData} search={search} handleAddPlant={handleAddPlant} handleDelete={handleDelete}  sort={sort}/>
     </main>
   );
 }

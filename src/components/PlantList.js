@@ -1,7 +1,7 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList({plantsData, search, handleDelete, sort}) {
+function PlantList({plantsData, search, handleDelete, sort, handleUpdatePlant}) {
   // console.log(plantsData)
   const renderPlants = plantsData
       .filter(plants => plants.name.toLowerCase().includes(search.toLowerCase()))
@@ -19,6 +19,7 @@ function PlantList({plantsData, search, handleDelete, sort}) {
               plant = {plant}
               key = {plant.id}
               handleDelete = {handleDelete}
+              handleUpdatePlant = {handleUpdatePlant}
             />)
 
   return (
