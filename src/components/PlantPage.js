@@ -3,7 +3,7 @@ import NewPlantForm from "./NewPlantForm";
 import PlantList from "./PlantList";
 import Search from "./Search";
 
-const Url_main = 'http://localhost:3000/plants'
+const Url_main = 'http://localhost:6001/plants'
 console.log()
 
 const PlantPage = ()  => {

@@ -1,6 +1,6 @@
 
 
-function Search({search, setSearch, sortBy, setSortBy}) {
+function Search({search, setSearch, setSortBy}) {
 
   const handleSort = e => {
     setSortBy(e.target.value)
